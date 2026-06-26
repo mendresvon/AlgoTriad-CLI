@@ -249,7 +249,7 @@ def run_quick_sort_demo() -> None:
     # Print state after sorting
     print(f"After Sorting : {arr}")
     print("--------------------------------------------------")
-    print("Sorting completed successfully using Lomuto Partitioning.")
+    print("Sorting completed successfully.")
 
     pause_and_continue()
 
