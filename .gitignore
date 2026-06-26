@@ -14,3 +14,7 @@ venv.bak/
 
 # Project private files
 video_script.md
+
+# Build and packaging
+build/
+
