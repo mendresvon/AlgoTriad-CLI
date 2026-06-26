@@ -18,3 +18,7 @@ video_script.md
 # Build and packaging
 build/
 
+# OS-specific files
+.DS_Store
+
+
