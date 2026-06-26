@@ -61,14 +61,28 @@ if __name__ == "__main__":
         "F": {"D": 6, "E": 3},
     }
 
+    # 1. Show the campus graph using letters only
+    print("Campus Graph Connections:")
+    for node, neighbors in campus_graph.items():
+        connections = ", ".join(
+            f"{neighbor}({weight})" for neighbor, weight in neighbors.items()
+        )
+        print(f"  {node} -> {connections}")
+
+    # 2. Print the legend mapping letters to their landmarks
+    print("\nLandmark Legend:")
+    for letter, name in landmarks.items():
+        print(f"  {letter}: {name}")
+
+    # 3. Tell the user what the set starting point is
     start = "A"
-    print(f"Finding shortest paths starting from: {landmarks[start]}\n")
+    print(f"\nStarting Point: {start} ({landmarks[start]})")
+
+    # Run the algorithm
     shortest_paths = dijkstra(campus_graph, start)
 
-    # Print out a nice summary of the results
+    # 4. Output the results using only letters for destinations and routes
+    print("\nShortest Paths Results:")
     for node, (distance, path) in shortest_paths.items():
-        path_names = [landmarks[n] for n in path]
-        route = " -> ".join(path_names)
-        print(
-            f"Destination: {landmarks[node]:<18} | Distance: {distance:<3} | Route: {route}"
-        )
+        route = " -> ".join(path)
+        print(f"  Destination: {node} | Distance: {distance:<4} | Route: {route}")
