@@ -339,12 +339,14 @@ def run_dijkstra_demo() -> None:
     print_header("Dijkstra's Shortest Path (Greedy)")
 
     # Print the graph layout to the student/professor for visualization
-    print("STUST Campus Landmark Connections:")
-    print("--------------------------------------------------")
+    print("Campus Graph Connections:")
     for source, edges in CAMPUS_GRAPH.items():
-        connections = ", ".join(f"{dest}(weight {w})" for dest, w in edges.items())
-        print(f"  Node {source} ({LANDMARKS[source]}): connects to [{connections}]")
-    print("--------------------------------------------------")
+        connections = ", ".join(f"{dest}({w})" for dest, w in edges.items())
+        print(f"  {source} -> {connections}")
+
+    print("\nLandmark Legend:")
+    for letter, name in LANDMARKS.items():
+        print(f"  {letter}: {name}")
 
     # Ask user for starting node
     while True:
