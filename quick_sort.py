@@ -1,21 +1,21 @@
 def partition(arr: list[int], low: int, high: int) -> int:
-    # We choose the last element as our pivot
-    pivot = arr[high]
+    # We choose the first element as our pivot
+    pivot = arr[low]
 
     # i keeps track of the boundary where elements smaller than the pivot go
-    i = low - 1
+    i = low
 
-    for j in range(low, high):
+    for j in range(low + 1, high + 1):
         # If the current element is smaller or equal to the pivot, move it to the left side
         if arr[j] <= pivot:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
 
     # Finally, swap the pivot element into its correct position
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    arr[low], arr[i] = arr[i], arr[low]
 
     # Return the index where the pivot ended up
-    return i + 1
+    return i
 
 
 def quick_sort(arr: list[int], low: int, high: int) -> None:

@@ -163,29 +163,29 @@ def run_binary_search_demo() -> None:
 def partition(arr: list[int], low: int, high: int) -> int:
     """Partitions the sub-array in-place using Lomuto's partitioning scheme.
 
-    We select the last element of the sub-array as the pivot. Then, we
+    We select the first element of the sub-array as the pivot. Then, we
     iterate through the sub-array and swap elements smaller than the pivot
     to the left. Finally, we swap the pivot into its correct sorted index.
 
     Args:
         arr: The list of integers being sorted.
-        low: The starting index of the partition.
-        high: The ending index of the partition (contains the pivot).
+        low: The starting index of the partition (contains the pivot).
+        high: The ending index of the partition.
 
     Returns:
         The final index of the pivot element.
     """
-    pivot = arr[high]
-    i = low - 1  # Index of the boundary of smaller elements
+    pivot = arr[low]
+    i = low  # Index of the boundary of smaller elements
 
-    for j in range(low, high):
+    for j in range(low + 1, high + 1):
         if arr[j] <= pivot:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
 
-    # Swap the pivot element to the index right after the smaller elements boundary
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
-    return i + 1
+    # Swap the pivot element to its correct final place
+    arr[low], arr[i] = arr[i], arr[low]
+    return i
 
 
 def quick_sort_in_place(arr: list[int], low: int, high: int) -> None:
