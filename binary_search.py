@@ -29,7 +29,8 @@ def binary_search(arr: list[int], target: int) -> tuple[int, int]:
 # Quick test run to make sure it works
 if __name__ == "__main__":
     test_list = [10, 20, 30, 40, 50, 60, 70]
-    target_value = 40
+    print(f"\nList of Values:\n{test_list}\n")
+    target_value = int(input("Enter target value to search for: "))
 
     print(f"Searching for {target_value} in {test_list}...")
     index, comparisons = binary_search(test_list, target_value)
